@@ -1,3 +1,3 @@
-# avito-service
-An unfinished layout "RobotX".
+# robotX
+An interactive website "RobotX" with using html/css/native JS.
 
