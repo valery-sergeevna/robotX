@@ -1,7 +1,9 @@
+html{
+    font-size: 10px;
+}
 body{
     margin:0;
     font-family: 'Josefin Sans', sans-serif;
-    font-size:16px;
     line-height:1.6;
     color:rgb(255,255,255);
     background-color: black;
@@ -19,15 +21,36 @@ h1,h2,h3,h4,h5,h6{
     max-width:1200px;
     margin:0 auto;
 }
+.main-slider{
+    height:100vh;
+}
+.main-slider .slick-dots {
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.main-slider .slick-dots  li{
+    width:80px;
+}
+.main-slider .slick-dots button {
+    background: #fff;
+    width: 80px;
+    height: 10px;
+}
+.main-slider .slick-active button {
+    background: red;
+}
+
 .logo{
-    font: 700 50px 'Rajdhani', sans-serif;
+    font: 700 5rem 'Rajdhani', sans-serif;
     color: white;
 }
 .logo > span{
     color:rgb(255,0,0);
 }
 .title{
-    font-size: 3.5em;
+    font-size: 5.6rem;
     text-align: center;
     margin-bottom: 35px;
     padding: 0 30px;
@@ -38,7 +61,7 @@ h1,h2,h3,h4,h5,h6{
 .subtitle{
     width:70%;
     margin: 0 auto;
-    font-size: 1em;
+    font-size: 1.6rem;
     text-align: center;
 }
 .status{
@@ -46,6 +69,7 @@ h1,h2,h3,h4,h5,h6{
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
+    font-size:1.8rem;
     color:red;
 }
 /*HEADER*/
@@ -56,7 +80,7 @@ h1,h2,h3,h4,h5,h6{
 .header__link{
     position: fixed;
     z-index:1000;
-    bottom:20px;
+    bottom:25px;
     right:20px;
     width: 70px;
     height:70px;
@@ -66,13 +90,40 @@ h1,h2,h3,h4,h5,h6{
     border-radius:50%;
     background-color: #ffffff;
     color:black;
-    font-size: 30px;
+    font-size: 3rem;
     font-weight: 700;       
     cursor: pointer;
 }
+.pageup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+	width: 70px ;
+	height: 70px;
+	position: fixed;
+	bottom: 100px;
+	right: 20px;
+	z-index: 30;
+	background-color: red;
+	cursor: pointer;
+    border-radius:50%;
+    transition: all 0.5s linear;
+    border:2px solid black;
+}
+.pageup.position{
+    bottom: 25px;
+}
+.pageup span{
+    width: 20px;
+    height: 20px;
+    border-top: 5px solid #fff;
+    border-right: 5px solid #fff;
+    transform: rotate(-45deg);
+}
+  
 .header-form{
     position: fixed;
-    bottom:100px;
+    bottom:110px;
     right:20px;
     background: #fff;
     color:black;
@@ -90,12 +141,15 @@ h1,h2,h3,h4,h5,h6{
     opacity: 1;
     visibility:visible;
 }
+.header-form p{
+    font-size: 1.5rem;
+}
 .header-form form{
     display: flex;
     flex-direction: column;
 }
 .header-form__title{
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 22px;
 }
 .header-form__input{
@@ -103,7 +157,7 @@ h1,h2,h3,h4,h5,h6{
     display: inline-block;
     margin-bottom: 10px;
     border-radius:8px;
-    font-size: 14px;
+    font-size: 1.4rem;
     padding:10px;
     border: 1px solid #D3C9C9;  
 }
@@ -120,7 +174,7 @@ h1,h2,h3,h4,h5,h6{
     border-radius: 8px;
     border:none;
     background-color: red;
-    font-size: 15px;
+    font-size: 1.5rem;
     text-transform: uppercase;
     font-weight: 700;
     color:#fff;
@@ -150,7 +204,7 @@ h1,h2,h3,h4,h5,h6{
     transition: .5s;
 }
 .phone {
-    font-size: 35px;
+    font-size: 3.5rem;
     animation: phone .9s ease-in-out infinite;
     line-height:75px;
 }
@@ -160,7 +214,7 @@ h1,h2,h3,h4,h5,h6{
     position: absolute;
     top:22%;
     font-weight: 700;
-    font-size: 13px;
+    font-size: 1.3rem;
     transform: scaleX(-1);
     transition: .5s ease-in-out;
 }
@@ -235,7 +289,7 @@ h1,h2,h3,h4,h5,h6{
 }
 /*nav*/
 .nav{
-    font-size: 1.05em;
+    font-size: 1.5em;
 }
 .nav__link{
     position: relative;
@@ -276,27 +330,48 @@ h1,h2,h3,h4,h5,h6{
 .intro{
     display: flex;
     flex-direction: column;
-    justify-content: center;    
+    justify-content: center;   
+    align-items: center; 
     width:100%;
     height:100vh;
     min-height:600px;
     text-align: center;
     background: url(../img/intro2.jpg) center no-repeat;
     background-size: cover;
+    position: relative;
+}
+.intro_grey{
+    background: url(../img/intro3.jpg) center no-repeat;
+}
+.intro_home{
+    background: url(../img/home-bg.jpg) center no-repeat;
 }
 .intro__inner{
     padding: 0 20px;
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%); 
 }
 .intro__title{
-    font-size: 8.5em;
+    font-size: 13.6rem;
+}
+.intro__title_black{
+    color:#000;
 }
 .intro__subtitle{
-    font-size: 3em;
+    font-size: 4.5rem;
+}
+.intro__subtitle_black{
+    color:#000;
+}
+.intro__subtitle_red{
+    color:red;
 }
 /*section*/
 .section{
     padding:70px 0;
-    background-color: rgb(0,0,0);
+    background-color: #000;
 }
 .section_small_padding{
     padding: 60px 0;
@@ -330,14 +405,17 @@ h1,h2,h3,h4,h5,h6{
     border: 2px solid white;
 }
 .services__icon{
-    font-size: 500%;
+    font-size: 6rem;
     color:red;
 }
 .services__title{
-    font-size: 1.4em;
+    font-size: 2.24rem;
     font-weight: bold;
     display: inline-block;
     margin-bottom:5px;
+}
+.services__text{
+    font-size: 1.6rem;
 }
 /*button*/
 .button{
@@ -347,6 +425,7 @@ h1,h2,h3,h4,h5,h6{
     text-decoration: none;
     display: inline-block;
     margin:15px auto 0;
+    font-size: 1.6rem;
     font-weight: bold;
     transition: .2s linear;
     cursor: pointer;
@@ -370,7 +449,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .button_big_size{
     padding:15px 40px;
-    font-size: 1em;
+    font-size: 1.6rem;
     margin: 18px auto 50px;
 }
 /*team*/
@@ -394,11 +473,11 @@ h1,h2,h3,h4,h5,h6{
     text-align: left;
 }
 .team__prof{
-    font-size:1.6em;
+    font-size:2.5rem;
     font-weight: bold;
 }
 .team__text{
-    font-size: 1.05em;
+    font-size: 1.6rem;
 }
 .team__img{
     width:100%;
@@ -422,7 +501,11 @@ h1,h2,h3,h4,h5,h6{
     display: inline-block;
     padding:10px;
     color:red;
-    font-size: 1.3em;
+    font-size: 2rem;
+    transition: color 0.2s linear;
+}
+.team__icon:hover{
+    color:#fff;
 }
 /*line*/
 .line{
@@ -476,7 +559,7 @@ h1,h2,h3,h4,h5,h6{
 }
 .skills__title{
     display: inline-block;
-    font-size: 2.5em;
+    font-size: 4rem;
     margin-bottom:50px;
 }
 .skills__item{
@@ -486,13 +569,13 @@ h1,h2,h3,h4,h5,h6{
     align-items: center;
     width:100%;
     margin-bottom: 10px;
-    font-size: 17px;
+    font-size: 1.7rem;
     font-weight: bold;
 }
 .skills__info{
     width:25%;
     text-align: left;
-    font-size: 1em;
+    font-size: 1.6rem;
 }
 .skills__scale{
     width:65%;
@@ -533,7 +616,7 @@ h1,h2,h3,h4,h5,h6{
 .gallery__text{
     width:70%;
     margin: 0 auto;
-    font-size: 1em;
+    font-size: 1.6rem;
 }
 .gallery__link{
     display: flex;
@@ -543,6 +626,7 @@ h1,h2,h3,h4,h5,h6{
     margin: 15px auto;
     padding: 0 20px;
     text-align: center;
+    font-size: 1.5rem;
 }
 .gallery__item{ 
 	width:13%;
@@ -633,7 +717,7 @@ img.gallery__photo {
     background-color: red;
     padding:20px 0;
     font-weight: bold;
-    font-size: 1.7em;
+    font-size: 2.5em;
     transition:.3s linear;
 }
 .price__item:hover
@@ -645,17 +729,17 @@ img.gallery__photo {
     background-color: red;
 }
 .price__icon{
-    font-size: 2em;
+    font-size: 3.5rem;
 }
 .price__info span{
-    font-size: 250%;
+    font-size: 7rem;
 }
 .price__info span sup{
-    font-size:40%;
+    font-size:4rem;
 }
 .price__text{
     color:black;
-    font-size: 1em;
+    font-size: 1.6rem;
     padding-top:10px;
     line-height: 1;
 }
@@ -677,7 +761,7 @@ img.gallery__photo {
     text-align: center;
 }
 .news__title{
-    font-size: 2em;
+    font-size: 3.2rem;
     margin:30px 0 0 80px; 
 }
 /*latest*/
@@ -696,6 +780,10 @@ img.gallery__photo {
 }
 .news-item__title{
     color:red;
+    font-size: 2rem;
+}
+.news-item__text{
+    font-size: 1.5rem;
 }
 .news-item:hover 
 .news-item__title,
@@ -706,7 +794,7 @@ img.gallery__photo {
 .news-item__date{
     width:30%;
     padding:5px 15px;
-    font-size: 2.5em;
+    font-size: 4.2rem;
     font-weight: bold;
     line-height: 1.3;
     background-color: red;
@@ -716,6 +804,7 @@ img.gallery__photo {
 }
 .news-item__footer{
     margin-top:10px;
+    font-size: 1.5rem;
 }
 .news-item__icon{
     display: inline;
@@ -738,26 +827,29 @@ img.gallery__photo {
     cursor:pointer;
 }
 .blog__date{
-    font-size: 1.3em;
+    font-size: 2.5rem;
     font-weight: bold;
     width:20%;
     line-height: 1.3;
     background-color: black;
     padding:10px 15px;
 }
+.blog__title{
+    font-size: 1.5rem;
+}
 .blog__info{
     width:80%;
     padding:0 10px;
 }
 .blog__text{
-    font-size: 0.8em;
+    font-size: 1.3rem;
 }
 .blog__icon{
     display: inline;
     color:black;
 }
 .blog__footer{
-    font-size: 0.9em;
+    font-size: 1.3rem;
 }
 .blog__item:hover .blog__title{
     color:black;
@@ -773,7 +865,7 @@ img.gallery__photo {
     position: relative;
 }
 .map iframe{
-    opacity:0.5;
+    opacity:0.7;
     transition: .3s linear;
     height:300px;
 }
@@ -785,7 +877,7 @@ img.gallery__photo {
     left:10%;
     transform: translateY(-50%);
     z-index: 2;
-    font-size: 200%;
+    font-size: 3rem;
     line-height: 1.3;
     font-weight: bold;
 }
@@ -812,7 +904,7 @@ img.gallery__photo {
 .form__text{
     display: inline-block;
     margin: 0;
-    font-size: 1.3em;
+    font-size: 2.2rem;
 }
 input.form__item{
     margin:10px auto;
@@ -820,14 +912,14 @@ input.form__item{
     padding:5px 10px;
     height:40px;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.3em;
+    font-size: 2.2rem;
     color:black;
 }
 
 textarea{
     width:100%;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 1.3em;
+    font-size: 2.2rem;
     margin-top: 10px;
     color:black;
 }
@@ -844,21 +936,24 @@ textarea{
 }
 .footer__logo{
     width:25%;
-    font:700 3em 'Rajdhani', sans-serif;;
+    font:700 5rem 'Rajdhani', sans-serif;;
     color:white;
 }
 .footer__logo span{
     color: black;
 }
 .footer__rights{
-    font-size: 1em;
+    font-size: 1.6rem;
     width:60%;
 }
 .footer__icon{
     width:15%;
     color:white;
-    font-size: 1.2em;
+    font-size: 1.8rem;
     margin:0 5px;
+}
+.footer__icon:hover{
+    color:#000;
 }
 /*media*/
 @media screen and (max-width: 1300px){
@@ -875,11 +970,14 @@ textarea{
     }
  }
 @media screen and (max-width: 990px){
-    body{
-        font-size: 14px;
+    html{
+        font-size: 9px;
     }
     .section{
         padding:40px 0;
+    }
+    #service{
+        padding-top:80px;
     }
     .news__latest{
         padding-left: 50px;
@@ -897,13 +995,27 @@ textarea{
         margin:8px;
     }
     .gallery__item{
-        font-size: 13px;
         width:30%;
+    }
+    .footer__icon{
+        font-size: 2rem;
+        margin:0 10px;
     }
  }
 @media screen and (max-width: 768px){
-    body{
-        font-size:15px; 
+    .header-form{
+        width:90%;
+        max-width:600px;
+        height:300px;
+    }
+    .header-form__input{
+        font-size: 1.8rem;
+    }
+    .header-form__title{
+        font-size: 2rem;
+    }
+    .intro__subtitle{
+        font-size: 3.8rem;
     }
     .nav-toggle {
         display: block;
@@ -950,7 +1062,6 @@ textarea{
 	.nav-toggle.active span{
 		transform:scale(0);
 	}
-
 	.nav{
 		opacity:0;
 		visibility:hidden;
@@ -960,7 +1071,7 @@ textarea{
         width:100%;
 		background-color: rgba(255, 0, 0, 0.9);
 		border-bottom:2px solid red;
-        font-size: 100%;
+        font-size: 1.5rem;
 		text-align: center;
 		transition: all .4s ease-in;
 		padding: 20px 0;
@@ -988,11 +1099,11 @@ textarea{
     }
     .button_big_size{
         padding:20px 25px;
-        font-size: 1.2em;
+        font-size: 2rem;
         margin: 18px auto 50px;
     }
     .button{
-        font-size: 1.3em;
+        font-size: 1.6rem;
     }
     .title{
         line-height:1;
@@ -1017,17 +1128,17 @@ textarea{
         width:80%;
     }
     .services__title{
-        font-size:2em;
+        font-size:3.2rem;
     }
     .services__text{
-        font-size:1.4em;
+        font-size:2rem;
     }
     .team__text{
-        font-size: 1.3em;
+        font-size: 1.8rem;
     }
     .gallery__item{
         width:40%;
-        font-size:1em;
+        font-size:1.6rem;
     }
     .gallery__red{
         width:50%;
@@ -1038,7 +1149,7 @@ textarea{
     }
     .price__header{
         line-height:1.1;
-        font-size:2em;
+        font-size:3.2rem;
     }
     .price__title{
         margin-bottom: 20px;
@@ -1050,20 +1161,20 @@ textarea{
     }
     .price__text{
         line-height: 0.8;
-        font-size: 1.3em;
+        font-size: 1.7rem;
     }
     .news{
         flex-wrap:wrap;
     }
     .news__item{
         width:100%;
-        padding: 0 25px;
+        padding: 0 15px;
     }
     .news-item__text{
-        font-size: 1.2em;
+        font-size: 1.8rem;
     }
     .news-item__title{
-        font-size:1.8em;
+        font-size:2.2rem;
     }
     .news__item_last{
         display: none;
@@ -1093,17 +1204,17 @@ textarea{
         width:100%;
     }
     .form__text{
-        font-size:1.7em;
+        font-size:2rem;
     }
     .footer__logo{
-        font-size: 35px;
+        font-size: 3.5rem;
     }
     .footer{
         flex-direction:column;
     }
     .footer__rights{
         margin:20px 0;
-        font-size: 1.2em;
+        font-size: 1.5rem;
     }
     .footer__logo{
         width:100%;
@@ -1120,20 +1231,26 @@ textarea{
         font-size:16px;
         line-height:1.2;
     }
+ 
     .header__inner{
         padding: 20px 5px;
     }
     .header__logo{
-        font-size: 30px;
+        font-size: 3rem;
     }
     .header__logo.size{
-        font-size: 75px;
+        font-size: 7.5rem;
     }
     .intro__title{
-        font-size: 6em;
+        font-size: 9.6rem;
     }
     .intro__subtitle{
-        font-size:2em;
+        font-size:3.2rem;
+    }
+    .main-slider .slick-dots button{
+        width:70px;
+        height:2px;
+        padding:3px;
     }
     .services__item{
         width:85%;
@@ -1167,7 +1284,7 @@ textarea{
     }
     .skills__title{
         margin: 20px 0;
-        font-size: 200%;
+        font-size:2.8rem;
     }
     .skills__scale{
         display: none;
@@ -1194,11 +1311,11 @@ textarea{
     .news__title{
         text-align: center;
         padding:30px 0 0;
-        font-size: 2em;
+        font-size: 3rem;
         margin:0;
     }
     .news__latest{
-        padding: 10px 30px;
+        padding: 20px 30px;
         margin-top:5px; 
     }
     .news-item{
@@ -1209,20 +1326,27 @@ textarea{
         font-size:18px;
     }
     .news-item__date{
-        font-size:1.6em;
+        font-size:3rem;
     }
     .map__text{
-        font-size: 1.6em;
+        font-size: 2.6rem;
     }
-
 }
 
 .fadeIn{
 	animation-name: fadeIn;
 	animation-duration: 0.5s;
 }
+.fadeOut{
+	animation-name: fadeOut;
+	animation-duration: 0.5s;
+}
 @keyframes fadeIn {
 	0% {opacity: 0;}
 	100% {opacity: 1;}
+}
+@keyframes fadeOut {
+    0% {opacity: 1;}
+    100% {opacity: 0;} 
 } 
 

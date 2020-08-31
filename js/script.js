@@ -1,3 +1,6 @@
+'use strict';
+
+//animation on scroll
 AOS.init({
     // Global settings:
     disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -13,7 +16,7 @@ AOS.init({
     // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
     offset: 80, // offset (in px) from the original trigger point
     delay: 0, // values from 0 to 3000, with step 50ms
-    duration: 800, // values from 0 to 3000, with step 50ms
+    duration: 400, // values from 0 to 3000, with step 50ms
     easing: 'ease', // default easing for AOS animations
     once: true, // whether animation should happen only once - while scrolling down
     mirror: false, // whether elements should animate out while scrolling past them
@@ -21,14 +24,78 @@ AOS.init({
 
 });
 
+//jquery
+$(document).ready(function () {
+
+    //slick-slider
+    $('.main-slider').slick({
+        autoplay: true,
+        autoplaySpeed: 5000,
+        arrows: false,
+        dots: true,
+        pauseOnHover: false,
+        pauseOnDotsHover: true,
+        fade: true,
+    });
+
+    //anchor smooth scrolling
+    $("a.nav__link").on("click", function (e) {
+        e.preventDefault();
+        let anchor = $(this).attr('href');
+        $('html, body').stop().animate({
+            scrollTop: $(anchor).offset().top - 60
+        }, 800);
+    });
+
+    //scrolling to up
+    $(function () {
+        $("#up").hide();
+
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > $('.header').innerHeight()) {
+                $("#up").fadeIn();
+            } else {
+                $("#up").fadeOut();
+            }
+        });
+
+        $("#up").click(function () {
+            $("body,html").animate({
+                scrollTop: 0
+            }, 800);
+            return false;
+        });
+    });
+
+});
+
+
 window.addEventListener("DOMContentLoaded", () => {
 
+    //phone mask
     const elements = document.querySelectorAll('#phone');
     for (let i = 0; i < elements.length; i++) {
         new IMask(elements[i], {
             mask: '+{38} (000) 000-00-00',
         });
     }
+
+    //add active class 
+    const addActiveClass = (parentSelector, itemsSelector, className, nameTag) => {
+        const parent = document.querySelector(parentSelector),
+            items = document.querySelectorAll(itemsSelector);
+
+        parent.addEventListener('click', (e) => {
+            const target = e.target;
+            if (target.tagName === nameTag) {
+                items.forEach(item => item.classList.remove(className));
+                target.classList.add(className);
+            }
+        });
+    };
+
+    //add active class to nav__link
+    addActiveClass('.nav', '.nav__link', 'nav__link_active', 'A');
 
     const headerLink = document.querySelector(".header__link"),
         headerForm = document.querySelector(".header-form"),
@@ -47,7 +114,8 @@ window.addEventListener("DOMContentLoaded", () => {
             burgerBtn.classList.remove('active');
         }
     };
-    //burger-menu
+
+    //hamburger-menu
     const burgerBtn = document.querySelector('.nav-toggle'),
         menu = document.querySelector('.nav');
 
@@ -122,17 +190,10 @@ window.addEventListener("DOMContentLoaded", () => {
         typeFilter(markHosting);
     });
 
-    //activation class
-    galleryLink.addEventListener('click', (e) => {
-        let target = e.target;
+    //add/remove active class
+    addActiveClass('.gallery__link', '.gallery__item', 'gallery__item_active', 'P');
 
-        if (target && target.tagName === 'P') {
-            galleryItems.forEach(btn => btn.classList.remove('gallery__item_active'));
-            target.classList.add('gallery__item_active');
-        }
-    });
-
-    //work with formData
+    //work with formData using fetch
     const forms = () => {
         const form = document.querySelectorAll('form'),
             inputs = document.querySelectorAll('input'),
@@ -144,7 +205,6 @@ window.addEventListener("DOMContentLoaded", () => {
             failure: "It was failure..",
         };
 
-        //using fetch
         const postData = async (url, data) => {
             document.querySelector('.status').textContent = message.loading;
 
@@ -187,7 +247,8 @@ window.addEventListener("DOMContentLoaded", () => {
                         setTimeout(() => {
                             statusMessage.remove();
                             headerForm.classList.remove('open');
-                            headerLink.innerHTML = content;
+                            headerLink.remove();
+                            document.querySelector('.pageup').classList.add('position');
                         }, 5000);
                     });
 
