@@ -94,8 +94,21 @@ window.addEventListener("DOMContentLoaded", () => {
         });
     };
 
-    //add active class to nav__link
-    addActiveClass('.nav', '.nav__link', 'nav__link_active', 'A');
+    //add active class to nav__link while scrolling
+
+    window.addEventListener('scroll', () => {
+        let scrollDistance = window.scrollY;
+        document.querySelectorAll('.scroll').forEach((el, i) => {
+            if (el.offsetTop - document.querySelector('.header__inner').clientHeight <= scrollDistance) {
+                document.querySelectorAll('.nav__link').forEach((el) => {
+                    if (el.classList.contains('nav__link_active')) {
+                        el.classList.remove('nav__link_active');
+                    }
+                });
+                document.querySelectorAll('.nav__link')[i].classList.add('nav__link_active');
+            }
+        });
+    });
 
     const headerLink = document.querySelector(".header__link"),
         headerForm = document.querySelector(".header-form"),
