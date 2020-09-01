@@ -1006,7 +1006,7 @@ textarea{
     .header-form{
         width:90%;
         max-width:600px;
-        height:300px;
+        height:320px;
     }
     .header-form__input{
         font-size: 1.8rem;
@@ -1083,6 +1083,7 @@ textarea{
     .nav__link{
         display: block;
         padding: 5px 20px;
+        font-size: 1.6rem;
 	}
 	.nav__link:after{
 		background-color: black;
@@ -1228,10 +1229,9 @@ textarea{
         padding: 45px 0;
     }
     .subtitle{
-        font-size:16px;
+        font-size:1.6rem;
         line-height:1.2;
     }
- 
     .header__inner{
         padding: 20px 5px;
     }
@@ -1240,6 +1240,12 @@ textarea{
     }
     .header__logo.size{
         font-size: 7.5rem;
+    }
+    .header-form{
+        height:340px;
+    }
+    .status{
+        font-size: 14px;
     }
     .intro__title{
         font-size: 9.6rem;
