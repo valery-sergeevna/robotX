@@ -336,15 +336,15 @@ h1,h2,h3,h4,h5,h6{
     height:100vh;
     min-height:600px;
     text-align: center;
-    background: url(../img/intro2.jpg) center no-repeat;
+    background: url(../../img/intro2.jpg) center no-repeat;
     background-size: cover;
     position: relative;
 }
 .intro_grey{
-    background: url(../img/intro3.jpg) center no-repeat;
+    background: url(../../img/intro3.jpg) center no-repeat;
 }
 .intro_home{
-    background: url(../img/home-bg.jpg) center no-repeat;
+    background: url(../../img/home-bg.jpg) center no-repeat;
 }
 .intro__inner{
     padding: 0 20px;
